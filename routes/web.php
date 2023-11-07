@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,18 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/* --------------- Admin routes -----------------*/
-
-Route::prefix("admin")->group(function () {
-    Route::get("/login", [AdminController::class, 'Index'])->name('login_form');
-
-    Route::post("/login/owner", [AdminController::class, 'Login'])->name('admin.login');
-
-    Route::get("/dashboard", [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
-
-});
-
-/* --------------- End Admin routes -----------------*/
 
 Route::get('/', function () {
     return view('welcome');
